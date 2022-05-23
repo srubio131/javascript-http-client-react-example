@@ -1,0 +1,1 @@
+export { default as BerriesScreen } from './berries.screen'

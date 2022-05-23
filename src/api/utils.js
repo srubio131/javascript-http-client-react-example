@@ -1,3 +1,5 @@
+import { DEFAULT_HEADERS, METHODS } from './constants'
+
 function createMockedInstance ({ status = 200, mock = null } = {}) {
     return new Promise((resolve, reject) => {
       if (status >= 400 && status <= 600) reject(mock)
@@ -12,7 +14,7 @@ export function myFetch({
     defaultMock = {}
   }) {
     const toPromise = () => fetch(`${BASE_URL}/${url}`, {
-      method: METHODS.GET,
+      method,
       headers: {
         ...DEFAULT_HEADERS,
         ...(headers) ? headers : {}
